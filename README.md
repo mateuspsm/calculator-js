@@ -120,7 +120,7 @@ Foto dos contribuidores com algum link para algumas de suas redes.
 
 ## Referencias
 
-- Referencias que queira destacar ao desenvolver o projeto
+- [ Marcos André Silveira Kutova](https://www.youtube.com/watch?v=3VEbigWyakg&list=PLKoAQTS8rBFofL4B4xRPcovyK1g8dcZUI)
 
 ## Licença
 
