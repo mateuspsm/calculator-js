@@ -1,4 +1,6 @@
+//Onload carrega assim que a página for aberta
 onload = () => {
+    //Campos referentes aos número e botões da calculadora
     document.querySelector('#btn-0').onclick = () => num(0);
     document.querySelector('#btn-1').onclick = () => num(1);
     document.querySelector('#btn-2').onclick = () => num(2);
@@ -15,7 +17,7 @@ onload = () => {
     document.querySelector('#btn-sub').onclick = () => operador('-');
     document.querySelector('#btn-mult').onclick = () => operador('*');
     document.querySelector('#btn-div').onclick = () => operador('/');
-    document.querySelector('#btn-equals').onclick = calcular;
+    document.querySelector('#btn-equals').onclick = calculate;
 }
 
 let valorDoDisplay;
@@ -26,10 +28,10 @@ let operacaoPendente = null;
 const updateVisor = () => {
     let [parteInt, parteDec] = valorDoDisplay.split(',');
     let v = '';
-    c=0;
-    for(let i=parteInt.length - 1; i>=0; i--){
-        if(++c>3){
-            v = '.'+v;
+    c = 0;
+    for (let i = parteInt.length - 1; i >= 0; i--) {
+        if (++c > 3) {
+            v = '.' + v;
             c = 1;
         }
         v = parteInt[i] + v;
@@ -47,10 +49,10 @@ const num = (n) => {
 };
 
 const virgula = () => {
-    if(novoNum){
+    if (novoNum) {
         valorDoDisplay = '0,';
         novoNum = false;
-    } else if(valorDoDisplay.indexOf(',') == -1) valorDoDisplay += ',';
+    } else if (valorDoDisplay.indexOf(',') == -1) valorDoDisplay += ',';
     updateVisor();
 };
 
@@ -62,25 +64,25 @@ const clear = () => {
     updateVisor();
 };
 
-const valorAtual = () => parseFloat(valorDoDisplay.replace(',','.'));
+const valorAtual = () => parseFloat(valorDoDisplay.replace(',', '.'));
 
 const operador = (op) => {
-    calcular();
+    calculate();
     valorAnterior = valorDoDisplay;
     operacaoPendente = op;
     novoNum = true;
 };
 
-const calcular = () => {
-    if(operacaoPendente != null){
+const calculate = () => {
+    if (operacaoPendente != null) {
         let resultado = 0;
-        switch(operacaoPendente){
+        switch (operacaoPendente) {
             case '+': resultado = Number(valorAnterior) + valorAtual(); break;
             case '-': resultado = Number(valorAnterior) - valorAtual(); break;
             case '*': resultado = Number(valorAnterior) * valorAtual(); break;
             case '/': resultado = Number(valorAnterior) / valorAtual(); break;
         }
-        valorDoDisplay = resultado.toString().replace('.',',');
+        valorDoDisplay = resultado.toString().replace('.', ',');
     }
     novoNum = true;
     operacaoPendente = null;
