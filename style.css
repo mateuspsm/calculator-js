@@ -9,10 +9,18 @@
     display: block;
 }
 
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    background-color: red;
+    color: white;
+}
+
 #calculator {
-    width: 250px;
+    width: 400px;
     height: 350px;
-    margin: 0 auto;
+    margin: auto;
+    padding: 10%;
     background-color: black;
 }
 
